@@ -9,7 +9,6 @@ count = 0
 
 for i in range(0, N):
     a = matrix[i][i]
-    print()
     print(a, end=' ')
     if a % 3 == 0:
         count += 1
