@@ -1,15 +1,18 @@
-import random
-
-N = int(input("Введите количество столбцов (N): "))
-M = int(input("Введите количество строк (M): "))
-matrix = [[random.randint(1, 100) for _ in range(N)] for _ in range(M)]
-for row in matrix:
+M = int(input("Введите количество строк M: "))
+N = int(input("Введите количество столбцов N: "))
+B = []
+print("Введите элементы матрицы построчно:")
+for i in range(M):
+    row = list(map(int, input(f"Строка {i + 1}: ").split()))
+    B.append(row)
+min_array = []
+for j in range(N):
+    min_val = B[0][j]
+    for i in range(1, M):
+        if B[i][j] < min_val:
+            min_val = B[i][j]
+    min_array.append(min_val)
+print("\nИсходная матрица:")
+for row in B:
     print(row)
-count = 0
-c = []
-for x in range(0, N):
-    for i in range(0, M):
-        c.append(matrix[i][count])
-    count += 1
-print(c)
-print(c[2])
+print(f"\nМассив минимальных элементов каждого столбца: {min_array}")
